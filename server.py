@@ -64,7 +64,7 @@ def main():
     while True:
         client, addr = server.accept()
         print(f'Cliente conectado: {addr}')
-        
+        print("Usuários conectados:", list(clients.keys()))
 
 
         # Inicia uma thread para cada cliente
