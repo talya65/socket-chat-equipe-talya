@@ -46,8 +46,11 @@ def broadcast(msg, sender):
                 remove_client(user)
 
 # Função para remover um cliente
-def remove_client(client):
-  clients.remove(client)
+def remove_client(username):
+    if username in clients:
+        clients[username].close()
+        del clients[username]
+        broadcast(f"{username} saiu do chat.".encode('utf-8'), None)
         
 
 # Função principal
