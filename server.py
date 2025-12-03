@@ -11,6 +11,7 @@ def handle_client(client):
         # Recebe o nome de usuário do cliente
         username = client.recv(2048).decode('utf-8')
         clients[username] = client
+        broadcast(f"{username} entrou no chat!".encode('utf-8'), client)
         
     except:
         client.close()
@@ -46,11 +47,8 @@ def broadcast(msg, sender):
                 remove_client(user)
 
 # Função para remover um cliente
-def remove_client(username):
-    if username in clients:
-        clients[username].close()
-        del clients[username]
-        broadcast(f"{username} saiu do chat.".encode('utf-8'), None)
+def remove_client(client):
+  clients.remove(client)
         
 
 # Função principal
