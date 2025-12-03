@@ -3,7 +3,7 @@ import threading
 import socket
 
 def main():
-    # Cria um objeto de soquete para o cliente
+    # Cria um objeto de soquete para o usuario
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
